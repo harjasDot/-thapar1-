@@ -62,3 +62,9 @@ def makehuman(request):
     else:
         form=UserCreationForm()
         return render(request,"signup.html",{'form':form,})
+
+def deltask(request,task_id): 
+    task = Human.objects.get(pk=task_id)
+    task.delete()
+    messages.error(request, 'Task Deleted')
+    return redirect('/')

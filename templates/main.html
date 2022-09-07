@@ -7,7 +7,7 @@
     color:white;
     text-align:center !important;
   }
-  a{
+  .back{
     position:absolute;
     top:20px;
     left:20px;
@@ -28,7 +28,7 @@
   }
 </style>
 {% if user.is_authenticated %}
-<a  href="{% url 'exit' %}" ><button type="button" class="btn btn-light"><i style="font-size:24px" class="fa">&#xf0a8;</i></button></a>
+<a  class="back" href="{% url 'exit' %}" ><button type="button" class="btn btn-light"><i style="font-size:24px" class="fa">&#xf0a8;</i></button></a>
 {% comment %} ADMIN VIEW------------------------------------------------------------------------------------------------------------ {% endcomment %}
 {% if user.is_superuser %}
 {% if messages %}
@@ -61,6 +61,7 @@
     <tr>
       <td>{{ i.desc }}</td>
       <td>{{ i.time }}</td>
+      <td><a  href="{% url 'del-task' i.id %}" ><button type="button" class="btn btn-danger"><i style="font-size:24px" class="fa">&#xf014;</i></button></a></td>
     </tr>
     {% endfor %}
   </table>
