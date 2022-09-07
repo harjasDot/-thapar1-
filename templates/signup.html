@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block one %}
+<style>
+  body{
+    margin:auto;
+    background-color:#132D46;
+    color:white;
+  }
+  .container{
+    text-align: center;
+    margin-top:30px;
+    margin-bottom:30px;
+    padding: 35px;
+    width:40%;
+    background: rgba(225, 225, 225, 0.5);
+    box-shadow: rgb(0, 0, 0,0.5);
+    border-radius: 15px;
+  }
+  a{
+    color:white;
+    text-decoration:none;
+    position:absolute;
+    top:20px;
+    left:20px;
+  }
+    
+  </style>
+  <a  href="{% url 'enter' %}" ><button type="button" class="btn btn-light"><i style="font-size:24px" class="fa">&#xf0a8;</i></button></a>
+
+  <h1 class="text-center">Register Here</h1>
+  {% if messages %}
+{% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+{% endif %}
+  <div class="error-message">
+    {% if form.non_field_errors %} 
+                       
+       {% for error in form.non_field_errors %}
+          <p style="font-size: 13px;">
+             {{ error|escape }}
+          </p>
+      {% endfor %} 
+                       
+    {% endif %}
+</div>
+
+<form  method='POST'  action="">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-success end">Submit</button><br>
+
+</form>
+
+{% endblock one %}
