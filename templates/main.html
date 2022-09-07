@@ -19,12 +19,19 @@
   }
   table,th, td{
     margin:20px auto auto auto;
-    width:80%;
+    width:90%;
     text-align:center;
     border:1px solid white;
   }
   .msg{
     margin-top:5px;
+  }
+  @media screen and (max-width: 425px) {
+    .container{
+      width:90% !important;
+      margin:auto;
+      margin-top:20px;
+    }
   }
 </style>
 {% if user.is_authenticated %}
