@@ -59,45 +59,20 @@
             <div class="collapse navbar-collapse" id="oleezMainNav">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="'index">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#!" id="blogDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
-                        <div class="dropdown-menu" aria-labelledby="blogDropdown"> -->
-                            <!-- <a class="dropdown-item" href="blog-standard.html">Blog Standard</a> -->
-                            <!-- <a class="dropdown-item" href="blogs">Blog grid</a>
-                            <a class="dropdown-item" href="blogPage">Blog Post</a>
-                        </div>
-                    </li> -->
-
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#!" id="pagesDropdown" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Book Bank</a>
-                        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                            <a class="dropdown-item" href="shop.html">Shop</a>
-                            <a class="dropdown-item" href="contact.html">Contact</a>
-                            <a class="dropdown-item" href="404.html">404</a>
-                        </div>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Book Bank</a>
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about">About</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="bookbank.html">Book Bank</a>
+                        <a class="nav-link" href="bookbank">Book Bank</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="activities.html">Activites</a>
+                        <a class="nav-link" href="activities">Activites</a>
                     </li>   
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#!" id="portfolioDropdown" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Gallery</a>
+                        <a class="nav-link dropdown-toggle" href="/" id="portfolioDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" >Gallery</a>
                         <div class="dropdown-menu" aria-labelledby="portfolioDropdown">
-                            <a class="dropdown-item" href="gallery/videos.html">Videos</a>
-                            <a class="dropdown-item" href="gallery/articles.html">Articles</a>
+                            <a class="dropdown-item" href="videos">Videos</a>
+                            <a class="dropdown-item" href="articles">Articles</a>
                         </div>
                     </li>
                 </ul>
@@ -539,12 +514,12 @@
             <input type="search" class="oleez-overlay-search-input" id="search" name="search" placeholder="Search here">
         </form>
     </div>
-    <script src="static/vendors/popper.js/popper.min.js"></script>
-    <script src="static/vendors/wowjs/wow.min.js"></script>
-    <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="static/vendors/slick-carousel/slick.min.js"></script>
-    <script src="static/js/main.js"></script>
-    <script src="static/js/landing.js"></script>
+    <script src="{% static 'vendors/popper.js/popper.min.js' %}"></script>
+    <script src="{% static 'vendors/wowjs/wow.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/slick-carousel/slick.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/landing.js' %}"></script>
     <script>
         new WOW({mobile: false}).init();
     </script>

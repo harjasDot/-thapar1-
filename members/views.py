@@ -8,9 +8,22 @@ from django.contrib.auth.models import User
 #impoting models
 from members.models import Human
 # Create your views here.
-
 def index(request):
     return render(request,'index.html')
+
+
+def activities(request):
+    return render(request,'activities.html')
+
+
+def bookbank(request):
+    return render(request,'bookbank.html')
+
+def videos(request):
+    return render(request,'videos.html')
+
+def articles(request):
+    return render(request,'articles.html')
 
 def home(request):
     if(request.method=='POST'):
