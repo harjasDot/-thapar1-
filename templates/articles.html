@@ -14,7 +14,9 @@
 </head>
 
 <body>
+    {% if user.is_authenticated %}
     <div class="oleez-loader"></div>
+    
     <header class="oleez-header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="/"><img src="../static/images/CosLogo.png" alt="Oleez" height="40vx"></a>
@@ -54,6 +56,9 @@
                             <a class="dropdown-item" href="articles">Articles</a>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exit">Logout</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav d-none d-lg-flex">
                     
@@ -66,105 +71,7 @@
             </div>
         </nav>
     </header>
-
-    <main class="blog-grid-page">
-        <div class="container">
-            <h1 class="oleez-page-title wow fadeInUp">Articles</h1>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <img src="../static/images/Bloggrid/Bloggrid_2@2x.jpg" alt="blog">
-                        </div>
-                        <p class="blog-post-date">January 29, 2020</p>
-                        <h5 class="blog-post-title">Why you must experience design at least once</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <img src="../static/images/Bloggrid/Bloggrid_8@2x.jpg" alt="blog">
-                        </div>
-                        <p class="blog-post-date">January 29, 2020</p>
-                        <h5 class="blog-post-title">Why you must experience design at least once</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <img src="../static/images/Bloggrid/Bloggrid_7@2x.jpg" alt="blog">
-                        </div>
-                        <p class="blog-post-date">January 29, 2020</p>
-                        <h5 class="blog-post-title">Why you must experience design at least once</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <img src="../static/images/Bloggrid/Bloggrid_6@2x.jpg" alt="blog">
-                        </div>
-                        <p class="blog-post-date">January 29, 2020</p>
-                        <h5 class="blog-post-title">Why you must experience design at least once</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <img src="../static/images/Bloggrid/Bloggrid_5@2x.jpg" alt="blog">
-                        </div>
-                        <p class="blog-post-date">January 29, 2020</p>
-                        <h5 class="blog-post-title">Why you must experience design at least once</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <img src="../static/images/Bloggrid/Bloggrid_4@2x.jpg" alt="blog">
-                        </div>
-                        <p class="blog-post-date">January 29, 2020</p>
-                        <h5 class="blog-post-title">Why you must experience design at least once</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <img src="../static/images/Bloggrid/Bloggrid_3@2x.jpg" alt="blog">
-                        </div>
-                        <p class="blog-post-date">January 29, 2020</p>
-                        <h5 class="blog-post-title">Why you must experience design at least once</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <img src="../static/images/Bloggrid/Bloggrid_2@2x.jpg" alt="blog">
-                        </div>
-                        <p class="blog-post-date">January 29, 2020</p>
-                        <h5 class="blog-post-title">Why you must experience design at least once</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <img src="../static/images/Bloggrid/Bloggrid_1@2x.jpg" alt="blog">
-                        </div>
-                        <p class="blog-post-date">January 29, 2020</p>
-                        <h5 class="blog-post-title">Why you must experience design at least once</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 pb-5 mb-5">
-                        <nav class="oleez-pagination d-flex align-items-center justify-content-center wow fadeInUp">
-                            <a href="#!" class="active">01</a>
-                            <a href="#!">02</a>
-                            <a href="#!">03</a>
-                            <a href="#!" class="next">&rarr;</a>
-                        </nav>
-                </div>
-            </div>
-        </div>
-    </main>
+    
 
     <footer class="oleez-footer wow fadeInUp">
         <div class="container">
@@ -237,6 +144,65 @@
                 <input type="search" class="oleez-overlay-search-input" id="search" name="search" placeholder="Search here">
             </form>
         </div>
+
+        {% else %}
+        <div class="oleez-loader"></div>
+        <header class="oleez-header">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/"><img src="../static/images/CosLogo.png" alt="Oleez" height="40vx"></a>
+                <ul class="nav nav-actions d-lg-none ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/" data-toggle="searchModal">
+                            <img src="../static/images/search.svg" alt="search">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/" data-toggle="offCanvasMenu">
+                            <img src="../static/images/social icon@2x.svg" alt="social-nav-toggle">
+                        </a>
+                    </li>
+                </ul>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#oleezMainNav"
+                    aria-controls="oleezMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="oleezMainNav">
+                    <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="bookbank">Book Bank</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="activities">Activites</a>
+                        </li>   
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="articles" id="portfolioDropdown" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Gallery</a>
+                            <div class="dropdown-menu" aria-labelledby="portfolioDropdown">
+                                <a class="dropdown-item" href="videos">Videos</a>
+                                <a class="dropdown-item" href="articles">Articles</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="enter">Login</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav d-none d-lg-flex">
+                        
+                        <li class="nav-item ml-5">
+                            <a class="nav-link pr-0 nav-link-btn" href="#!" data-toggle="offCanvasMenu">
+                                <img src="../static/images/social icon@2x.svg" alt="social-nav-toggle">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div><h1> LOGIN FIRST</h1></div>
+        {% endif %}
         <script src="{% static 'vendors/popper.js/popper.min.js' %}"></script>
         <script src="{% static 'vendors/wowjs/wow.min.js' %}"></script>
         <script src="{% static 'vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>

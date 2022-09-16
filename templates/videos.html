@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    {% if user.is_authenticated %}
     <div class="oleez-loader"></div>
     <header class="oleez-header">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -57,6 +58,10 @@
                             <a class="dropdown-item" href="articles">Articles</a>
                         </div>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="exit">Logout</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav d-none d-lg-flex">
                     
@@ -69,105 +74,8 @@
             </div>
         </nav>
     </header>
+    
 
-    <main class="blog-grid-page">
-        <div class="container">
-            <h1 class="oleez-page-title wow fadeInUp">Videos</h1>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/58tJs5I3eIQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="blog-post-date">6 June 2021</p>
-                        <h5 class="blog-post-title">Hang weight with supporting technique</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/3rlf2WU697A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="blog-post-date">5 July 2021</p>
-                        <h5 class="blog-post-title">Tulsi Day Speech (5th July)</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/0bGKuVworxw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="blog-post-date">18 October 2020</p>
-                        <h5 class="blog-post-title">Color Wheel Activity</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/xvy3TmWEvoo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="blog-post-date">20 Octover 2020</p>
-                        <h5 class="blog-post-title">Speech on Sir Jagadish Chandra Bose (Punjabi)</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/sy0e9YNXjQA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="blog-post-date">21 October 2020</p>
-                        <h5 class="blog-post-title">Speech on Sir Jagadish Chandra Bose (Hindi)</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Xkw-KgG5zKM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="blog-post-date">14 October 2020</p>
-                        <h5 class="blog-post-title">Circuit of Salty water</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qtXLsuCKnbk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="blog-post-date">6 June 2021</p>
-                        <h5 class="blog-post-title">Magic of Science</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/kGkZOp1be9c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="blog-post-date">6 June 2021</p>
-                        <h5 class="blog-post-title">Magic of Scicene (Explained)</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog-post-card wow fadeInUp">
-                        <div class="blog-post-thumbnail-wrapper">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/NEcbBiifIWc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="blog-post-date">12 Nov 2020</p>
-                        <h5 class="blog-post-title">Speech on world science day 2020</h5>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="row">
-                <div class="col-12 pb-5 mb-5">
-                        <nav class="oleez-pagination d-flex align-items-center justify-content-center wow fadeInUp">
-                            <a href="#!" class="active">01</a>
-                            <a href="#!">02</a>
-                            <a href="#!">03</a>
-                            <a href="#!" class="next">&rarr;</a>
-                        </nav>
-                </div>
-            </div> -->
-        </div>
-    </main>
 
     <footer class="oleez-footer wow fadeInUp">
         <div class="container">
@@ -240,6 +148,68 @@
                 <input type="search" class="oleez-overlay-search-input" id="search" name="search" placeholder="Search here">
             </form>
         </div>
+        {% else %}
+        <div class="oleez-loader"></div>
+    <header class="oleez-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="/"><img src="../static/images/CosLogo.png" alt="Oleez" height="40vx"></a>
+            <ul class="nav nav-actions d-lg-none ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#!" data-toggle="searchModal">
+                        <img src="../static/images/search.svg" alt="search">
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#!" data-toggle="offCanvasMenu">
+                        <img src="../static/images/social icon@2x.svg" alt="social-nav-toggle">
+                    </a>
+                </li>
+            </ul>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#oleezMainNav"
+                aria-controls="oleezMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="oleezMainNav">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookbank">Book Bank</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="activities">Activites</a>
+                    </li>   
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="videos" id="portfolioDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Gallery</a>
+                        <div class="dropdown-menu" aria-labelledby="portfolioDropdown">
+                            <a class="dropdown-item" href="videos">Videos</a>
+                            <a class="dropdown-item" href="articles">Articles</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="enter">Login</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-none d-lg-flex">
+                    
+                    <li class="nav-item ml-5">
+                        <a class="nav-link pr-0 nav-link-btn" href="#!" data-toggle="offCanvasMenu">
+                            <img src="../static/images/social icon@2x.svg" alt="social-nav-toggle">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+        <div><h1> LOGIN FIRST</h1></div>
+        {% endif %}
         <script src="{% static 'vendors/popper.js/popper.min.js' %}"></script>
         <script src="{% static 'vendors/wowjs/wow.min.js' %}"></script>
         <script src="{% static 'vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
