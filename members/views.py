@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 from members.models import Human
 # Create your views here.
 
+def index(request):
+    return render(request,'index.html')
 
 def home(request):
     if(request.method=='POST'):
