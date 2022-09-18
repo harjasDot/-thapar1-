@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 #impoting models
-from members.models import Human
+from members.models import Article
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -21,24 +21,28 @@ def bookbank(request):
 
 def videos(request):
     if(request.method=='POST'):
-        desc=request.POST['notice']
-        ins=Human(desc=desc)
+        thumb=request.FILES['image']
+        title=request.POST['title']
+        link=request.POST['link']
+        ins=Article(thumb=thumb,title=title,link=link)
         ins.save()
         messages.error(request, 'Notice Added successfully')
         return redirect('articles')
-    allNotice=Human.objects.all()
-    context={'notices':allNotice}
+    allArticles=Article.objects.all()
+    context={'articles':allArticles}
     return render(request,'videos.html',context)
 
 def articles(request):
     if(request.method=='POST'):
-        desc=request.POST['notice']
-        ins=Human(desc=desc)
+        thumb=request.FILES['image']
+        title=request.POST['title']
+        link=request.POST['link']
+        ins=Article(thumb=thumb,title=title,link=link)
         ins.save()
         messages.error(request, 'Notice Added successfully')
         return redirect('articles')
-    allNotice=Human.objects.all()
-    context={'notices':allNotice}
+    allArticles=Article.objects.all()
+    context={'articles':allArticles}
     return render(request,'articles.html',context)
 
 
@@ -86,19 +90,19 @@ def makehuman(request):
         return render(request,"signup.html",{'form':form,})
 
 def deltask(request,task_id): 
-    task = Human.objects.get(pk=task_id)
+    task = Article.objects.get(pk=task_id)
     task.delete()
     messages.error(request, 'Task Deleted')
     return redirect('/')
 
 def home(request):
-    if(request.method=='POST'):
-        desc=request.POST['notice']
-        ins=Human(desc=desc)
-        ins.save()
-        messages.error(request, 'Notice Added successfully')
-        return redirect('/')
+    # if(request.method=='POST'):
+    #     desc=request.POST['notice']
+    #     ins=Human(desc=desc)
+    #     ins.save()
+    #     messages.error(request, 'Notice Added successfully')
+    #     return redirect('/')
 
-    allNotice=Human.objects.all()
-    context={'notices':allNotice}
-    return render(request,'main.html',context)
+    # allNotice=Human.objects.all()
+    # context={'notices':allNotice}
+    return render(request,'main.html')

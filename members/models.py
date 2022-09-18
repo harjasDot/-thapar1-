@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class Human(models.Model):
-    desc=models.CharField(max_length=50,null=True,default=None)
-    time=models.DateField(auto_now_add=True)
+
+
+class Article(models.Model):
+    thumb=models.ImageField(upload_to = "media/" )
+    date=models.DateTimeField(auto_now_add=True)
+    title=models.CharField(max_length=100)
+    link=models.CharField(max_length=100)
