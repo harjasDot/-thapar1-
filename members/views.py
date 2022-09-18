@@ -20,10 +20,26 @@ def bookbank(request):
     return render(request,'bookbank.html')
 
 def videos(request):
-    return render(request,'videos.html')
+    if(request.method=='POST'):
+        desc=request.POST['notice']
+        ins=Human(desc=desc)
+        ins.save()
+        messages.error(request, 'Notice Added successfully')
+        return redirect('articles')
+    allNotice=Human.objects.all()
+    context={'notices':allNotice}
+    return render(request,'videos.html',context)
 
 def articles(request):
-    return render(request,'articles.html')
+    if(request.method=='POST'):
+        desc=request.POST['notice']
+        ins=Human(desc=desc)
+        ins.save()
+        messages.error(request, 'Notice Added successfully')
+        return redirect('articles')
+    allNotice=Human.objects.all()
+    context={'notices':allNotice}
+    return render(request,'articles.html',context)
 
 
 
@@ -45,7 +61,7 @@ def enter(request):
 def exit(request):
     logout(request)
     messages.error(request, 'LOGGED OUT')
-    return redirect("enter")
+    return redirect("/")
 
 
 def makehuman(request):
@@ -59,7 +75,7 @@ def makehuman(request):
             user.save()
             # login(request, user)
             messages.error(request, 'User created')
-            return redirect("home")
+            return redirect("enter")
         else:
             messages.error(request, 'Please fill form carefully')
             return redirect("makehuman")

@@ -71,7 +71,50 @@
             </div>
         </nav>
     </header>
-    
+    {% if user.is_superuser %}
+    <div>
+        <form  method='POST'  class="text-center">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="notice" class="form-label">Message</label>
+              <input type="text" class="form-control" name='notice' required>
+            </div>
+            <button type="submit" class="btn btn-success">Post</button>
+          
+            
+          </form> 
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for i in notices %}
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ i.id }}</h5>
+                      <p class="card-text">{{ i.desc }}</p>
+                      <a  href="{% url 'del-task' i.id %}" ><button type="button" class="btn btn-danger"><i style="font-size:24px" class="fa">&#xf014;</i></button></a>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="container">
+        <div class="row">
+            {% for i in notices %}
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ i.id }}</h5>
+                      <p class="card-text">{{ i.desc }}</p>
+                      </div>
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
 
     <footer class="oleez-footer wow fadeInUp">
         <div class="container">

@@ -3,8 +3,9 @@
 <style>
   body{
     margin:auto;
-    background-color:#132D46;
-    color:white;
+    {% comment %} background-color:#132D46; {% endcomment %}
+    background-color:grey;
+    color:black;
   }
   .container{
     text-align: center;
@@ -23,6 +24,13 @@
   .msg{
     margin-top:5px;
   }
+  .b{
+    color:white;
+    text-decoration:none;
+    position:absolute;
+    top:20px;
+    left:20px;
+  }
   @media screen and (max-width: 425px) {
     .container{
       width:90% !important;
@@ -35,6 +43,7 @@
 
 {% comment %} LOGIN VIEW------------------------------------------------------------------------------------------------------------ {% endcomment %}
 {% else %}
+<a  class="b" href="{% url 'index' %}" ><button type="button" class="btn btn-light"><i style="font-size:24px" class="fa">&#xf0a8;</i></button></a>
 {% if messages %}
 {% for message in messages %}
     <div class="msg alert alert-success alert-dismissible fade show" role="alert">
