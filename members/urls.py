@@ -8,8 +8,9 @@ urlpatterns = [
     path('bookbank',views.bookbank,name='bookbank'),
     path('videos',views.videos,name='videos'),
     path('articles',views.articles,name='articles'),
+    path('post',views.post,name='post'),
     
-    path('home',views.home,name='home_change'),
+    # useless-->
     path('enter',views.enter,name='enter'),
     path('exit',views.exit,name='exit'),
     path('makehuman',views.makehuman,name='makehuman'),

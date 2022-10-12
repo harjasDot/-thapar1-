@@ -44,14 +44,7 @@
 {% comment %} LOGIN VIEW------------------------------------------------------------------------------------------------------------ {% endcomment %}
 {% else %}
 <a  class="b" href="{% url 'index' %}" ><button type="button" class="btn btn-light"><i style="font-size:24px" class="fa">&#xf0a8;</i></button></a>
-{% if messages %}
-{% for message in messages %}
-    <div class="msg alert alert-success alert-dismissible fade show" role="alert">
-    {{ message }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    {% endfor %}
-{% endif %}
+
 <form  method='POST'  class="text-center">
     {% csrf_token %}
     <div class="mb-3">

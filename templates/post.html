@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Post-Articles</title>
+    <link rel="stylesheet" href="{% static 'vendors/animate.css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'vendors/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/loader.js' %}"></script>
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    {% if user.is_superuser %}
+    <div class="oleez-loader"></div>
+    
+    <header class="oleez-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="/"><img src="../static/images/CosLogo.png" alt="Oleez" height="40vx"></a>
+            <ul class="nav nav-actions d-lg-none ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" data-toggle="searchModal">
+                        <img src="../static/images/search.svg" alt="search">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/" data-toggle="offCanvasMenu">
+                        <img src="../static/images/social icon@2x.svg" alt="social-nav-toggle">
+                    </a>
+                </li>
+            </ul>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#oleezMainNav"
+                aria-controls="oleezMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="oleezMainNav">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookbank">Book Bank</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="activities">Activites</a>
+                    </li>   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="articles" id="portfolioDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Preview</a>
+                        <div class="dropdown-menu" aria-labelledby="portfolioDropdown">
+                            <a class="dropdown-item" href="videos">Videos</a>
+                            <a class="dropdown-item" href="articles">Articles</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="articles" id="portfolioDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Post</a>
+                        <div class="dropdown-menu" aria-labelledby="portfolioDropdown">
+                            <a class="dropdown-item" href="post">Videos</a>
+                            <a class="dropdown-item" href="post">Articles</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="exit">Logout</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-none d-lg-flex">
+                    
+                    <li class="nav-item ml-5">
+                        <a class="nav-link pr-0 nav-link-btn" href="#!" data-toggle="offCanvasMenu">
+                            <img src="../static/images/social icon@2x.svg" alt="social-nav-toggle">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    
+    <div style="text-align: center" class="container">
+        <h1>WELCOME ADMIN!</h1>
+        <form  method='POST'  class="text-center" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+              Thumbnail:<input type="file" name="image" required><br><br>
+              Title:<input type="text" name='title' required><br><br>
+              External Link:<input type="text" name='link' required><br><br>
+            </div>
+            <button type="submit" class="btn btn-success">Post Article</button>
+          
+            
+          </form> 
+    {% endif %}
+    {% endif %}
+
+
+
+    <script src="{% static 'vendors/popper.js/popper.min.js' %}"></script>
+    <script src="{% static 'vendors/wowjs/wow.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/slick-carousel/slick.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/landing.js' %}"></script>
+    <script>
+        new WOW({mobile: false}).init();
+    </script>
+
+
+</body>
+
+
+</html>

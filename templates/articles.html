@@ -15,6 +15,77 @@
 
 <body>
     {% if user.is_authenticated %}
+    {% if user.is_superuser %}
+    <div class="oleez-loader"></div>
+    
+    <header class="oleez-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="/"><img src="../static/images/CosLogo.png" alt="Oleez" height="40vx"></a>
+            <ul class="nav nav-actions d-lg-none ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" data-toggle="searchModal">
+                        <img src="../static/images/search.svg" alt="search">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/" data-toggle="offCanvasMenu">
+                        <img src="../static/images/social icon@2x.svg" alt="social-nav-toggle">
+                    </a>
+                </li>
+            </ul>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#oleezMainNav"
+                aria-controls="oleezMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="oleezMainNav">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="bookbank">Book Bank</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="activities">Activites</a>
+                    </li>   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="articles" id="portfolioDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Preview</a>
+                        <div class="dropdown-menu" aria-labelledby="portfolioDropdown">
+                            <a class="dropdown-item" href="videos">Videos</a>
+                            <a class="dropdown-item" href="articles">Articles</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="articles" id="portfolioDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Post</a>
+                        <div class="dropdown-menu" aria-labelledby="portfolioDropdown">
+                            <a class="dropdown-item" href="post">Videos</a>
+                            <a class="dropdown-item" href="post">Articles</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="exit">Logout</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-none d-lg-flex">
+                    
+                    <li class="nav-item ml-5">
+                        <a class="nav-link pr-0 nav-link-btn" href="#!" data-toggle="offCanvasMenu">
+                            <img src="../static/images/social icon@2x.svg" alt="social-nav-toggle">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    
+
+
+    {% else %}
     <div class="oleez-loader"></div>
     
     <header class="oleez-header">
@@ -56,6 +127,8 @@
                             <a class="dropdown-item" href="articles">Articles</a>
                         </div>
                     </li>
+                    
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="exit">Logout</a>
                     </li>
@@ -71,66 +144,25 @@
             </div>
         </nav>
     </header>
-    {% if user.is_superuser %}
-    
-    <div style="text-align: center" class="container">
-        <h1>WELCOME ADMIN!</h1>
-        <form  method='POST'  class="text-center" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="mb-3">
-              Thumbnail:<input type="file" name="image" required><br><br>
-              Title:<input type="text" name='title' required><br><br>
-              External Link:<input type="text" name='link' required><br><br>
-            </div>
-            <button type="submit" class="btn btn-success">Post</button>
-          
-            
-          </form> 
-          <hr><hr>
-          <h1>USER PREVIEW</h1>
-    </div>
-   
-    
-
-    <div style="display: flex; flex-direction: row; flex-wrap: wrap">
-
-        {% for i in articles %}
-        {#  Single Card Template:#}
-        <div class="card" style="width: 18rem; margin: 10px">
-          <img src="{{ i.thumb.url }}" class="card-img-top" >
-          <div class="card-body">
-            <div style="display: flex; flex-direction: row">
-              <h3 class="card-title">{{ i.title }}</h3>
-            </div>
-            <p>{{ i.date }}<br>Read full articles on:-</p>
-            <a href={{ i.link }}>{{ i.link }}</a><br>
-            <a  href="{% url 'del-task' i.id %}" ><button type="button" class="btn btn-danger"><i style="font-size:24px" class="fa">&#xf014;</i></button></a>
-            </div>
-        </div>
-        {% endfor %}
-      
-      </div>
-
-
-    {% else %}
-    <div style="display: flex; flex-direction: row; flex-wrap: wrap">
-
-        {% for i in articles %}
-        {#  Single Card Template:#}
-        <div class="card" style="width: 18rem; margin: 10px">
-          <img src="{{ i.thumb.url }}" class="card-img-top" >
-          <div class="card-body">
-            <div style="display: flex; flex-direction: row">
-              <h3 class="card-title">{{ i.title }}</h3>
-            </div>
-            <p>{{ i.date }}<br>Read full articles on:-</p>
-            <a href={{ i.link }}>{{ i.link }}</a><br>
-            </div>
-        </div>
-        {% endfor %}
-      
-      </div>
     {% endif %}
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap ">
+
+        {% for i in articles %}
+        {#  Single Card Template:#}
+        <div class="card" style="width: 18rem; margin: 10px">
+          <img src="{{ i.thumb.url }}" style="width: 18rem; height: 200px" class="card-img-top" >
+          <div class="card-body">
+            <div style="display: flex; flex-direction: row">
+              <h3 class="card-title">{{ i.title }}</h3>
+            </div>
+            <p>{{ i.date }}<br>Read full article on:-</p>
+            <a href={{ i.link }}>{{ i.link }}</a><br>
+            </div>
+        </div>
+        {% endfor %}
+      
+      </div>
+    
 
     <footer class="oleez-footer wow fadeInUp">
         <div class="container">

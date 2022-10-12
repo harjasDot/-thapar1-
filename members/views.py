@@ -33,6 +33,11 @@ def videos(request):
     return render(request,'videos.html',context)
 
 def articles(request):
+    allArticles=Article.objects.all()
+    context={'articles':allArticles}
+    return render(request,'articles.html',context)
+
+def post(request):
     if(request.method=='POST'):
         thumb=request.FILES['image']
         title=request.POST['title']
@@ -43,8 +48,7 @@ def articles(request):
         return redirect('articles')
     allArticles=Article.objects.all()
     context={'articles':allArticles}
-    return render(request,'articles.html',context)
-
+    return render(request,'post.html',context)
 
 
 def enter(request):
@@ -95,14 +99,3 @@ def deltask(request,task_id):
     messages.error(request, 'Task Deleted')
     return redirect('/')
 
-def home(request):
-    # if(request.method=='POST'):
-    #     desc=request.POST['notice']
-    #     ins=Human(desc=desc)
-    #     ins.save()
-    #     messages.error(request, 'Notice Added successfully')
-    #     return redirect('/')
-
-    # allNotice=Human.objects.all()
-    # context={'notices':allNotice}
-    return render(request,'main.html')
